@@ -20,7 +20,7 @@ function generateMFADetails(userId) {
   const otpauth_url = speakeasy.otpauthURL({
     secret: secret.base32,
     label: userId,
-    issuer: 'MyApp'
+    issuer: 'Two-Factor ALthentication'
   });
 
   QRCode.generate(otpauth_url, { small: true }, (err, url) => {
@@ -45,7 +45,6 @@ app.post('/setup-mfa', (req, res) => {
 
   const secret = generateMFADetails(userId);
   users[userId] = { secret };
-  console.log(secret)
 
   res.json({ message: 'MFA setup initiated', secret });
 });

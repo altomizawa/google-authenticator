@@ -3,7 +3,7 @@ import React from 'react'
 const Signup = () => {
   return (
     <div>
-      <h1>Multi-Factor Authentication</h1>
+      <h1>SIGN UP</h1>
       <form className='flex flex-col gap-2 justify-left mt-12' action={handleSubmit}>
         <div className='flex flex-col gap-2 justify-left'> 
           <label className='text-left font-bold' htmlFor='userId'>User ID:</label>
@@ -15,7 +15,7 @@ const Signup = () => {
         </div>
         <button className='mt-12' type="submit">Login</button>
       </form>
-      <p className='mt-4'>Don't have an account? <a>Click here</a> to create one</p>
+      <p className='mt-4'>Don't have an account? <a href='/signup' className='cursor-pointer'>Click here</a> to create one</p>
     </div>
   )
 }

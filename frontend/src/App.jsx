@@ -11,9 +11,10 @@ function App() {
     const response = await fetch('http://127.0.0.1:3000/verify-mfa', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${password}`
       },
-      body: JSON.stringify({ userId, password })
+      body: JSON.stringify({ userId })
     })
     const data = await response.json()
     console.log(data)
@@ -29,8 +30,7 @@ function App() {
   }
 
   return (
-    <>
-      <div>
+      <div className='min-w-[480px] w-[640px]'>
         <h1>Multi-Factor Authentication</h1>
         <form className='flex flex-col gap-2 justify-left mt-12' action={handleSubmit}>
           <div className='flex flex-col gap-2 justify-left'> 
@@ -43,9 +43,8 @@ function App() {
           </div>
           <button className='mt-12' type="submit">Login</button>
         </form>
-        <p className='mt-4'>Don't have an account? <a>Click here</a> to create one</p>
+        <p className='mt-4'>Don't have an account? <a className='cursor-pointer' href='/signup'>Click here</a> to create one</p>
       </div>
-    </>
   )
 }
 
